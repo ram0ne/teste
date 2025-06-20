@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Desafio Hacker do Amor</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #FF1493;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+    }
+    h1, h2, p {
+      text-shadow: 0 0 5px #FF1493;
+      text-align: center;
+    }
+    .input-container {
+      margin: 15px 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      padding: 10px;
+      background-color: #111;
+      color: #FF1493;
+      border: 1px solid #FF1493;
+      width: 300px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #FF1493;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    #recompensa {
+      display: none;
+      margin-top: 30px;
+      max-width: 90%;
+    }
+    video {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 600px;
+      border: 2px solid #FF1493;
+      border-radius: 10px;
+    }
+  </style>
+
+<style>
+  .emoji {
+    position: fixed;
+    top: -2em;
+    font-size: 24px;
+    animation: fall linear;
+    color: #FF1493;
+    pointer-events: none;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+</style>
+
+
+</head>
+<body>
+  <h1> NOSSO PRIMEIRO MÊS  💖</h1>
+
+  <form id="challengeForm">
+    <div class="input-container">
+      <label for="q1">Pergunta 1:</label>
+      <input type="text" id="q1" required>
+    </div>
+    <div class="input-container">
+      <label for="q2">Pergunta 2:</label>
+      <input type="text" id="q2" required>
+    </div>
+    <div class="input-container">
+      <label for="q3">Pergunta 3:</label>
+      <input type="text" id="q3" required>
+    </div>
+    <div class="input-container">
+      <label for="q4">Pergunta 4:</label>
+      <input type="text" id="q4" required>
+    </div>
+    <div class="input-container">
+      <label for="q5">Pergunta 5:</label>
+      <input type="text" id="q5" required>
+    </div>
+
+    <button type="submit">Enviar Respostas</button>
+  </form>
+
+  <div id="recompensa">
+    <h1> MEU FURACÃO DE NINAR </h1>
+    <h2>🎉 1 MÊS 😍</h2>
+    <p> Quero agradecer por esses 30 dias que passamos nos conhecendo, e quero que saiba que estou adorando, você se tornou uma pessoa muito especial para mim em muito pouco tempo, foi tão rápido, ainda me lembro de ver essa foto linda na sugestão de amizade e me senti muito atraído (mesmo que segundos depois entrei em panico achando q vc tinha namorado kkk).
+Obrigado por cada dia até aqui, cada risada, cada carinho, cada ciúme u.u, obrigado por cada música trocada, cada elogio, cada provocação quente, muito obrigado pelas 3h30 de ligação, as quase 3h da primeira vez também hahaha.
+<p>OBRIGADO POR SER PERFEITA.</p>
+<p>Te desejo cada dia mais.</p>
+<p>Você é linda, maravilhosa, simpatica, fofinha, brava u.u, cheirosa, muito gostosa, inteligente, sagaz, esperta, guerreira, super mamãe enfim tudoooo de bom.
+MEU AMOOOOOOR!
+💖</p>
+
+    <!-- Coloque o vídeo na mesma pasta com o nome "surpresa.mp4" -->
+    <video controls>
+      <source src="surpresa.mp4" type="video/mp4">
+      Seu navegador não suporta o vídeo 😢
+    </video>
+  </div>
+
+  <script>
+    const form = document.getElementById("challengeForm");
+    const recompensa = document.getElementById("recompensa");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const respostasCorretas = [
+        "resposta1",
+        "resposta2",
+        "resposta3",
+        "resposta4",
+        "resposta5"
+      ];
+
+      const campos = [
+        document.getElementById("q1").value.trim().toLowerCase(),
+        document.getElementById("q2").value.trim().toLowerCase(),
+        document.getElementById("q3").value.trim().toLowerCase(),
+        document.getElementById("q4").value.trim().toLowerCase(),
+        document.getElementById("q5").value.trim().toLowerCase()
+      ];
+
+      const tudoCerto = campos.every((resposta, index) => resposta === respostasCorretas[index]);
+
+      if (tudoCerto) {
+        form.style.display = "none";
+        recompensa.style.display = "block";
+      } else {
+        alert("Hmm... alguma resposta está errada. Tente de novo, amor 💕");
+      }
+    });
+
+  const emojis = ["❤️", "😍", "💘", "💋", "💌"];
+
+  function criarEmoji() {
+    const emoji = document.createElement("div");
+    emoji.classList.add("emoji");
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.animationDuration = (2 + Math.random() * 3) + "s";
+    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    document.body.appendChild(emoji);
+
+    setTimeout(() => emoji.remove(), 5000);
+  }
+
+  setInterval(criarEmoji, 300);
+
+  </script>
+</body>
+</html>
