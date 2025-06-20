@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz 1 mes pra nos </title>
+  <style>
+    body {
+      background-color: #000;
+      color: #FF1493;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+    }
+	
+    h1, h2, p {
+      text-shadow: 0 0 5px #FF1493;
+      text-align: center;
+    }
+    .input-container {
+      margin: 15px 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      padding: 10px;
+      background-color: #111;
+      color: #FF1493;
+      border: 1px solid #FF1493;
+      width: 300px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #FF1493;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    #recompensa {
+      display: none;
+      margin-top: 30px;
+      max-width: 90%;
+    }
+    video {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 600px;
+      border: 2px solid #FF1493;
+      border-radius: 10px;
+    }
+	
+	    .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 600px;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 10;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+	
+  </style>
+
+<style>
+  .emoji {
+    position: fixed;
+    top: -2em;
+    font-size: 24px;
+    animation: fall linear;
+    color: #FF1493;
+    pointer-events: none;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+</style>
+
+
+</head>
+<body>
+  <h1> NOSSO PRIMEIRO MÊS  💖</h1>
+
+  <form id="challengeForm">
+    <div class="input-container">
+      <label for="q1">Minha cor favorita:</label>
+      <input type="text" id="q1" required>
+    </div>
+    <div class="input-container">
+      <label for="q2">Em que ano nasci:</label>
+      <input type="text" id="q2" required>
+    </div>
+    <div class="input-container">
+      <label for="q3">Apelido carinhoso que eu te chamo:</label>
+      <input type="text" id="q3" required>
+    </div>
+    <div class="input-container">
+      <label for="q4">A serie que nos gosta:</label>
+      <input type="text" id="q4" required>
+    </div>
+    <div class="input-container">
+      <label for="q5">Uma coisa que eu gosto muito em você (3 letras):</label>
+      <input type="text" id="q5" required>
+    </div>
+
+    <button type="submit">Enviar Respostas</button>
+  </form>
+
+  <div id="recompensa">
+    <h1> MEU FURACÃO DE NINAR </h1>
+    <h2>🎉 1 MÊS 😍</h2>
+    <p> Quero agradecer por esses 30 dias que passamos nos conhecendo, e quero que saiba que estou adorando, você se tornou uma pessoa muito especial para mim em muito pouco tempo, foi tão rápido, ainda me lembro de ver essa foto linda na sugestão de amizade e me senti muito atraído (mesmo que segundos depois entrei em panico achando q vc tinha namorado kkk).
+Obrigado por cada dia até aqui, cada risada, cada carinho, cada ciúme u.u, obrigado por cada música trocada, cada elogio, cada provocação quente, muito obrigado pelas 3h30 de ligação, as quase 3h da primeira vez também hahaha.
+<p>OBRIGADO POR SER PERFEITA.</p>
+<p>Obrigado por permitir que eu seja eu mesmo, obrigado por cada detalhe até aqui que de alguma forma melhorou meu dia 😍</p>
+<p>Te desejo cada dia mais.</p>
+<p>Você é linda, maravilhosa, simpatica, fofinha, brava u.u, cheirosa, muito gostosa, inteligente, sagaz, esperta, guerreira, super mamãe enfim tudoooo de bom.</p>
+<p> QUE VENHA OUTROS 11 MESES, OUTROS 10 ANOS, QUE VENHA TODOS OS DIAS ANOS E MESES 😍😍😍 </p>
+<p>MEU AMOOOOOOR! 💖</p>
+<p> ABAIXO UM RESUMINHO ATÉ AQUI EM 5 FOTOS: </p>
+<!-- GALERIA DE FOTOS RAMONE -->
+<div id="galeria-ramone">
+  <div class="galeria-container">
+    <div class="galeria-slides" id="galeria-slides">
+      <img src="01.jpg" alt="Foto 1">
+      <img src="02.jpg" alt="Foto 2">
+      <img src="03.jpg" alt="Foto 3">
+      <img src="04.jpg" alt="Foto 4">
+      <img src="05.jpg" alt="Foto 5">
+    </div>
+    <button class="galeria-btn prev" onclick="galeriaAnterior()">❮</button>
+    <button class="galeria-btn next" onclick="galeriaProxima()">❯</button>
+  </div>
+</div>
+
+<style>
+  /* GALERIA ISOLADA */
+  #galeria-ramone .galeria-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00000055;
+  }
+
+  #galeria-ramone .galeria-slides {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+
+  #galeria-ramone .galeria-slides img {
+    height: 370px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+
+  #galeria-ramone .galeria-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 20px;
+  }
+
+  #galeria-ramone .prev {
+    left: 10px;
+  }
+
+  #galeria-ramone .next {
+    right: 10px;
+  }
+</style>
+
+<script>
+  let galeriaIndex = 0;
+  const galeriaSlides = document.querySelector("#galeria-slides");
+  const totalGaleria = galeriaSlides.children.length;
+
+  function galeriaAtualiza() {
+    galeriaSlides.style.transform = `translateX(-${galeriaIndex * 100}%)`;
+  }
+
+  function galeriaProxima() {
+    galeriaIndex = (galeriaIndex + 1) % totalGaleria;
+    galeriaAtualiza();
+  }
+
+  function galeriaAnterior() {
+    galeriaIndex = (galeriaIndex - 1 + totalGaleria) % totalGaleria;
+    galeriaAtualiza();
+  }
+</script>
+
+<h2>Não poderia esquecer dessa musica ne 😍 </h2>
+<!-- PLAYER DE MÚSICA RAMONE -->
+<div id="player-ramone">
+  <audio id="audioPlayer" controls>
+    <source src="furacao.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio HTML5.
+  </audio>
+</div>
+
+<h1>MUITO OBRIGADO POR ESSE MES, PRINCESA 😍 </h1>
+
+<style>
+  #player-ramone {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  #player-ramone audio {
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+  }
+</style>
+
+</div>
+
+  <script>
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+    let index = 0;
+
+    function showSlide(i) {
+      index = (i + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${index * 600}px)`;
+    }
+
+    function nextSlide() {
+      showSlide(index + 1);
+    }
+
+    function prevSlide() {
+      showSlide(index - 1);
+    }
+  </script>
+
+
+  </div>
+
+  <script>
+    const form = document.getElementById("challengeForm");
+    const recompensa = document.getElementById("recompensa");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const respostasCorretas = [
+        "branco",
+        "1995",
+        "furacão de ninar",
+        "dna do crime",
+        "voz"
+      ];
+
+      const campos = [
+        document.getElementById("q1").value.trim().toLowerCase(),
+        document.getElementById("q2").value.trim().toLowerCase(),
+        document.getElementById("q3").value.trim().toLowerCase(),
+        document.getElementById("q4").value.trim().toLowerCase(),
+        document.getElementById("q5").value.trim().toLowerCase()
+      ];
+
+      const tudoCerto = campos.every((resposta, index) => resposta === respostasCorretas[index]);
+
+      if (tudoCerto) {
+        form.style.display = "none";
+        recompensa.style.display = "block";
+      } else {
+        alert("Hmm... alguma resposta está errada. Tente de novo, amor 💕");
+      }
+    });
+
+  const emojis = ["❤️", "😍", "💘", "💋", "💌"];
+
+  function criarEmoji() {
+    const emoji = document.createElement("div");
+    emoji.classList.add("emoji");
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.animationDuration = (2 + Math.random() * 3) + "s";
+    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    document.body.appendChild(emoji);
+
+    setTimeout(() => emoji.remove(), 5000);
+  }
+
+  setInterval(criarEmoji, 300);
+
+  </script>
+</body>
+</html>
