@@ -1,1 +1,1 @@
-shutdown /s /f /t 3
+shutdown /s /f /t 60
