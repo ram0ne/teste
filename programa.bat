@@ -1,1 +1,1 @@
-shutdown /s /f /t 60
+shutdown /s /t 60 /c "MAQUINAAA INFECTADAA!!!"
